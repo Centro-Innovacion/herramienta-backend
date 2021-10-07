@@ -10,10 +10,11 @@ from models.cita_proyecto_models import Cita_ProyectoInAdd, Cita_ProyectoOut
 
 router = APIRouter()
 
-@router.post("/proyecto/create/",response_model=Cita_ProyectoOut)
-async def register_cita_proyecto(new_request: Cita_ProyectoInAdd, db: Session = Depends(get_db)):
-    cita_proyecto_in_db = Cita_ProyectoInDB(**new_request.dict())
+@router.post("/proyecto/crear/",response_model=Cita_ProyectoOut)
+async def register_citas_proyectos(new_cita_proyecto: Cita_ProyectoInAdd, db: Session = Depends(get_db)):
+    cita_proyecto_in_db = Cita_ProyectoInDB(**new_cita_proyecto.dict())
     db.add(cita_proyecto_in_db)
     db.commit()
     db.refresh(cita_proyecto_in_db)
     return cita_proyecto_in_db
+

@@ -5,8 +5,8 @@ from sqlalchemy.orm import Session
 
 from db.db_conection import get_db
 
-from db.personas_db import EntidadInDB
-from models.personas_models import EntidadInAdd, EntidadOut
+from db.entidad_db import EntidadInDB
+from models.entidad_models import EntidadInAdd, EntidadOut
 
 router = APIRouter()
 

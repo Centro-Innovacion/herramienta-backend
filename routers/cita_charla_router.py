@@ -10,7 +10,7 @@ from models.cita_charla_models import Cita_CharlaInAdd, Cita_CharlaOut
 
 router = APIRouter()
 
-@router.post("/charla/create/",response_model=Cita_CharlaOut)
+@router.post("/charla/crear/",response_model=Cita_CharlaOut)
 async def register_cita_charla(new_request: Cita_CharlaInAdd, db: Session = Depends(get_db)):
     cita_charla_in_db = Cita_CharlaInDB(**new_request.dict())
     db.add(cita_charla_in_db)

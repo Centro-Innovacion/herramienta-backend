@@ -10,7 +10,7 @@ from models.cita_capacitacion_models import Cita_CapacitacionInAdd, Cita_Capacit
 
 router = APIRouter()
 
-@router.post("/capacitacion/create/",response_model=Cita_CapacitacionOut)
+@router.post("/capacitacion/crear/",response_model=Cita_CapacitacionOut)
 async def register_cita_capacitacion(new_request: Cita_CapacitacionInAdd, db: Session = Depends(get_db)):
     cita_capacitacion_in_db = Cita_CapacitacionInDB(**new_request.dict())
     db.add(cita_capacitacion_in_db)
